@@ -193,6 +193,46 @@ class Tank:
         if control_mode == 'keys':
             self._controlMode = self._turretRotateKeys
         else:
+            self._c# ----- !-- Танки --! ----- #
+class Tank:
+    def __init__(self,
+                 x_coord = 100.0,
+                 y_coord = 100.0,
+                 forward_speed  = 3.0,
+                 backward_speed = 2.0,
+                 __body_rotate       = 0.0,
+                 __turret_rotate     = 0.0,
+                 body_rotate_speed   = 1.0,
+                 turret_rotate_speed = 1.2,
+                 control_mode        = 'mouse', # 'mouse' или 'keys'
+                 health           = 10_000,
+                 damage           = (3000, 8000), # От - до
+                 penetration      = 20, # %
+                 recharge         = 3,
+                 projectile_speed = 70,
+                 comand           = 'green',
+                 player_socket = None,
+                 projectiles   = list,
+                 username      = choice(random_nickname),
+                 screen        = None,
+                 body_image       = '',
+                 turret_image     = '',
+                 gun_image        = '',
+                 projectile_image = ''
+                 ):
+
+        self.x_coord = x_coord
+        self.y_coord = y_coord
+        self.forward_speed  = forward_speed
+        self.backward_speed = backward_speed
+        self.body_rotate         = __body_rotate
+        self.turret_rotate       = __turret_rotate
+        self.body_rotate_speed   = body_rotate_speed   / 5
+        self.turret_rotate_speed = turret_rotate_speed / 5
+
+        if control_mode == 'keys':
+            self._controlMode = self._turretRotateKeys
+        else:
             self._controlMode = self._turretRotateMouse
 
         self.health           = health
@@ -291,7 +331,7 @@ class Tank:
 
     def _bodyRotate(self):
         if 'K_a' in self.events:
-            self.body_rotate   += self.body_rotate_speed
+            self.body_rotate += self.body_rotate_speed
             self.turret_rotate += self.body_rotate_speed
 
             self.body_direction_vector.rotate_ip(-self.body_rotate_speed)
@@ -300,9 +340,8 @@ class Tank:
             self.len_vector_of_hitbox_forehead.rotate_ip(-self.body_rotate_speed)
             self.len_vector_of_hitbox_karma.rotate_ip(-self.body_rotate_speed)
 
-
         if 'K_d' in self.events:
-            self.body_rotate   -= self.body_rotate_speed
+            self.body_rotate -= self.body_rotate_speed
             self.turret_rotate -= self.body_rotate_speed
 
             self.body_direction_vector.rotate_ip(self.body_rotate_speed)
@@ -311,12 +350,11 @@ class Tank:
             self.len_vector_of_hitbox_forehead.rotate_ip(self.body_rotate_speed)
             self.len_vector_of_hitbox_karma.rotate_ip(self.body_rotate_speed)
 
-
         self.x_coord = self.position_vector.x
         self.y_coord = self.position_vector.y
-
-
-
+        
+        
+        
     def _hitboxesUpdate(self):
         self.center_hitbox['current_surface'] = (
             pygame.transform.rotate(
@@ -358,7 +396,31 @@ class Tank:
         karma_rect_pos = self.position_vector + self.len_vector_of_hitbox_karma
 
         self.forehead_hitbox['rect'].center = forehead_rect_pos
-        self.karma_hitbox['rect'].center = karma_rect_pos # проблема в хитбоксах при повороте они не много уезжают и обратно
+        self.karma_hitbox['rect'].center = karma_rect_pos
+
+
+
+    def _colideWalls(self):
+        pass
+
+
+
+    def _turretRotateMouse(self):
+        rel_x = self.player_mouse_x_coord - self.x_coord
+        rel_y = self.player_mouse_y_coord - self.y_coord
+
+        target_angle = math.degrees(math.atan2(-rel_y, rel_x))
+        angle_degrees = (target_angle - self.turret_rotate + 180) % 360 - 180
+
+
+        if abs(angle_degrees) > self.turret_rotate_speed:
+            if angle_degrees > 0:
+                self.turret_rotate += self.turret_rotate_speed
+                self.turret_direction_vector.rotate_ip(-self.turret_rotate_speed)
+
+            else:
+                self.turret_rotate -= self.turret_rotate_speed
+                self.turret_direction_vector.rotate_ip(self.turret_rotate_speed)
 
 
 
@@ -433,11 +495,6 @@ class Tank:
         self.screen.blit(rotated_turret, turret_rect)
 
 
-        self.screen.blit(self.center_hitbox['current_surface'], self.center_hitbox['rect'])
-        self.screen.blit(self.forehead_hitbox['current_surface'], self.forehead_hitbox['rect'])
-        self.screen.blit(self.karma_hitbox['current_surface'], self.karma_hitbox['rect'])
-
-
 
     def tankUpdate(self, events = tuple):
         try:
@@ -466,7 +523,6 @@ class Tank:
             'health'       : self.health,
             'comand'       : self.comand
         }
-
 
 
 
