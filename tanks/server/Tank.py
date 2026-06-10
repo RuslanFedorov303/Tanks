@@ -120,7 +120,7 @@ class Tank:
             'type': 'karma'
         }
 
-        self.hitboxes_list = (self.center_hitbox, self.forehead_hitbox, self.karma_hitbox)
+        self.hitboxes_list = (self.karma_hitbox, self.center_hitbox, self.forehead_hitbox)
 
 
         self.events = []            # События в игре и положение курсора игрока
