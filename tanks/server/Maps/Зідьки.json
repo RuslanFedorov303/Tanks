@@ -1,0 +1,27 @@
+{
+  "name": "Зідьки",
+  "size": {"x": 4000, "y": 4000},
+  "appearance": {
+    "green": [
+      {"x": 100, "y": 100},
+      {"x": 200, "y": 200}
+    ],
+    "red": [
+      {"x": 300, "y": 300},
+      {"x": 400, "y": 400}
+    ]
+  },
+
+  "backgrounds": [
+    {"image": "fon1", "x_coord": 0, "y_coord": 0, "width": 1000, "height": 1000, "rotate": 0}
+  ],
+  "down_decorations": [
+    {"image": "bush1", "x_coord": 100, "y_coord": 100, "width": 100, "height": 100, "rotate": 100}
+  ],
+  "up_decorations": [
+    {"image": "bush1", "x_coord": 200, "y_coord": 100, "width": 100, "height": 100, "rotate": 90}
+  ],
+  "walls": [
+    {"image": "house_long_purple", "x_coord": 1000, "y_coord": 1000, "width": 500, "height": 1000, "rotate": 45}
+  ]
+}
