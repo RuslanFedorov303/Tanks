@@ -1,0 +1,27 @@
+{
+  "name": "Ладівка",
+  "size": {"x": 4000, "y": 4000},
+  "appearance": {
+    "green": [
+      {"x": 100, "y": 100},
+      {"x": 200, "y": 200}
+    ],
+    "red": [
+      {"x": 300, "y": 300},
+      {"x": 400, "y": 400}
+    ]
+  },
+
+  "backgrounds": [
+    {"image": "Images/", "x": 0, "y": 0, "width": 100, "height": 100, "rotate": 0}
+  ],
+  "down_decorations": [
+    {"image": "Images/", "x": 0, "y": 0, "width": 100, "height": 100, "rotate": 0}
+  ],
+  "up_decorations": [
+    {"image": "Images/", "x": 0, "y": 0, "width": 100, "height": 100, "rotate": 0}
+  ],
+  "walls": [
+    {"image": "Images/", "x": 0, "y": 0, "width": 100, "height": 100, "rotate": 0}
+  ]
+}
