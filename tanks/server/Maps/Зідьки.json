@@ -1,0 +1,35 @@
+{
+  "name": "Зідьки",
+  "size": {"x": 4000, "y": 4000},
+  "appearance": {
+    "green": [
+      {"x": 100, "y": 100},
+      {"x": 200, "y": 200}
+    ],
+    "red": [
+      {"x": 300, "y": 300},
+      {"x": 400, "y": 400}
+    ]
+  },
+
+  "backgrounds": [
+    {"image": "fon_1", "x_coord": 0,    "y_coord": 0, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_1", "x_coord": -880, "y_coord": -600, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_1", "x_coord": -880, "y_coord": 0, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_1", "x_coord": 0,    "y_coord": -600, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_1", "x_coord": 880,  "y_coord": 0, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_2", "x_coord": 880,  "y_coord": 600, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_2", "x_coord": 1720, "y_coord": 0, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_2", "x_coord": 1720, "y_coord": 600, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_3", "x_coord": -880, "y_coord": 600, "width": 882, "height": 602, "rotate": 0},
+    {"image": "fon_3", "x_coord": 0,    "y_coord": 600, "width": 882, "height": 602, "rotate": 0}
+  ],
+  "down_decorations": [
+  ],
+  "up_decorations": [
+    {"image": "Bush", "x_coord": 200, "y_coord": 100, "width": 200, "height": 200, "rotate": 0}
+  ],
+  "walls": [
+    {"image": "house_long_green", "x_coord": 1000, "y_coord": 500, "width": 1000, "height": 300, "rotate": 0}
+  ]
+}
